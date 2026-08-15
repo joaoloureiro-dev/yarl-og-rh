@@ -1,0 +1,98 @@
+:root {
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #ffffff;
+    background: #080808;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    background: #080808;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    background: #080808;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#root {
+    min-height: 100vh;
+}
+
+/* MOBILE — default */
+.component {
+    padding: 16px;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+    .component {
+        padding: 24px;
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    .component {
+        padding: 32px;
+    }
+}
+
+/* LARGE DESKTOP */
+@media (min-width: 1280px) {
+    .component {
+        padding: 40px;
+    }
+}
