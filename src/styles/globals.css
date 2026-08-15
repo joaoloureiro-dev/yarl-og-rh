@@ -1,21 +1,3 @@
-:root {
-    font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-    color: #ffffff;
-    background: #080808;
-
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 *,
 *::before,
 *::after {
@@ -24,14 +6,29 @@
 
 html {
     min-width: 320px;
-    background: #080808;
+    min-height: 100%;
+    background: var(--color-background);
+    color: var(--color-text);
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-    background: #080808;
+
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+
+    color: var(--color-text);
+    background: var(--color-background);
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body,
@@ -67,32 +64,29 @@ a {
     text-decoration: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-tight);
+    color: var(--color-green-700);
+}
+
 #root {
     min-height: 100vh;
 }
 
-/* MOBILE — default */
-.component {
-    padding: 16px;
-}
-
-/* TABLET */
-@media (min-width: 768px) {
-    .component {
-        padding: 24px;
-    }
-}
-
-/* DESKTOP */
-@media (min-width: 1024px) {
-    .component {
-        padding: 32px;
-    }
-}
-
-/* LARGE DESKTOP */
-@media (min-width: 1280px) {
-    .component {
-        padding: 40px;
-    }
+::selection {
+    color: var(--color-text);
+    background: var(--color-yellow-300);
 }
