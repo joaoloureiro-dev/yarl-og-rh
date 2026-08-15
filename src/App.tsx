@@ -1,3 +1,5 @@
+import YarlPanel from './components/ui/YarlPanel'
+
 function App() {
   return (
     <main
@@ -6,22 +8,32 @@ function App() {
         padding: 'var(--page-padding)',
       }}
     >
-      <h1
+      <div
         style={{
-          fontSize: 'var(--font-size-3xl)',
+          width: '100%',
+          maxWidth: '720px',
+          margin: '0 auto',
         }}
       >
-        Yarl OG
-      </h1>
+        <YarlPanel variant="yellow">
+          <h1
+            style={{
+              fontSize: 'var(--font-size-3xl)',
+            }}
+          >
+            Yarl OG
+          </h1>
 
-      <p
-        style={{
-          marginTop: 'var(--space-4)',
-          color: 'var(--color-text-muted)',
-        }}
-      >
-        Robinhood Chain
-      </p>
+          <p
+            style={{
+              marginTop: 'var(--space-3)',
+              color: 'var(--color-text-muted)',
+            }}
+          >
+            The OG on Robinhood Chain.
+          </p>
+        </YarlPanel>
+      </div>
     </main>
   )
 }
