@@ -1,10 +1,14 @@
+import Header from './components/layout/Header'
 import BlockchainTicker from './components/ticker/BlockchainTicker'
 import YarlPanel from './components/ui/YarlPanel'
 
 function App() {
   return (
     <>
+      <div id="top" />
+
       <BlockchainTicker />
+      <Header />
 
       <main
         style={{
