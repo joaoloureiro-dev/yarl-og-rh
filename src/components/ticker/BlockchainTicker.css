@@ -1,0 +1,112 @@
+.blockchain-ticker {
+    --ticker-gap: 2rem;
+
+    position: relative;
+
+    width: 100%;
+    overflow: hidden;
+
+    background: var(--color-yellow-400);
+
+    border-top: var(--border-medium) solid var(--color-border);
+    border-bottom: var(--border-medium) solid var(--color-border);
+
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 7%,
+            black 93%,
+            transparent 100%);
+
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 7%,
+            black 93%,
+            transparent 100%);
+}
+
+.blockchain-ticker__track {
+    display: flex;
+    width: max-content;
+
+    animation: ticker-scroll 28s linear infinite;
+
+    will-change: transform;
+}
+
+.blockchain-ticker__group {
+    display: flex;
+    align-items: center;
+
+    gap: var(--ticker-gap);
+
+    flex-shrink: 0;
+
+    padding-block: 0.7rem;
+    padding-right: var(--ticker-gap);
+}
+
+.blockchain-ticker__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+}
+
+.blockchain-ticker__label {
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-sm);
+
+    color: var(--color-green-700);
+}
+
+.blockchain-ticker__value {
+    font-family: var(--font-family-data);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+
+    color: var(--color-green-900);
+}
+
+.blockchain-ticker__dot {
+    margin-left: var(--space-3);
+
+    font-family: var(--font-family-display);
+
+    color: var(--color-green-700);
+}
+
+.blockchain-ticker__value--positive {
+    color: var(--color-positive);
+}
+
+.blockchain-ticker__value--negative {
+    color: var(--color-negative);
+}
+
+@keyframes ticker-scroll {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@media (min-width: 768px) {
+    .blockchain-ticker {
+        --ticker-gap: 2.5rem;
+    }
+
+    .blockchain-ticker__group {
+        padding-block: 0.8rem;
+    }
+
+    .blockchain-ticker__label,
+    .blockchain-ticker__value {
+        font-size: var(--font-size-base);
+    }
+}

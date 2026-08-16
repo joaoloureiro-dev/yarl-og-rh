@@ -4,3 +4,10 @@ export interface TokenConfig {
     contractAddress: string
     chain: string
 }
+export interface TokenConfig {
+    name: string
+    ticker: string
+    contractAddress: string
+    chain: string
+    chainId: string
+}
