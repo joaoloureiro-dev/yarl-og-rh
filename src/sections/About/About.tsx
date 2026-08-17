@@ -57,7 +57,9 @@ function About() {
                                 id="about-title"
                             >
                                 YARL
-                                <span>THE ORIGINAL PEPE KILLER</span>
+                                <span>
+                                    THE ORIGINAL PEPE KILLER
+                                </span>
                             </h2>
 
                             <p className="about__subtitle">
@@ -69,7 +71,7 @@ function About() {
                             className="about__story"
                             initial={{
                                 opacity: 0,
-                                y: 24,
+                                y: 28,
                             }}
                             whileInView={{
                                 opacity: 1,
@@ -77,11 +79,11 @@ function About() {
                             }}
                             viewport={{
                                 once: true,
-                                amount: 0.15,
+                                amount: 0.12,
                             }}
                             transition={{
                                 delay: 0.08,
-                                duration: 0.65,
+                                duration: 0.7,
                                 ease: [0.22, 1, 0.36, 1],
                             }}
                         >
@@ -167,53 +169,88 @@ function About() {
                         </motion.div>
                     </div>
 
-                    <motion.aside
-                        className="about__aside"
-                        initial={{
-                            opacity: 0,
-                            x: 24,
-                        }}
-                        whileInView={{
-                            opacity: 1,
-                            x: 0,
-                        }}
-                        viewport={{
-                            once: true,
-                            amount: 0.2,
-                        }}
-                        transition={{
-                            delay: 0.12,
-                            duration: 0.6,
-                            ease: [0.22, 1, 0.36, 1],
-                        }}
-                    >
-                        <div className="about__facts">
+                    <aside className="about__aside">
+                        <motion.div
+                            className="about__facts"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{
+                                once: true,
+                                amount: 0.3,
+                            }}
+                            variants={{
+                                hidden: {},
+                                visible: {
+                                    transition: {
+                                        staggerChildren: 0.1,
+                                    },
+                                },
+                            }}
+                        >
                             {facts.map((fact, index) => (
-                                <div
-                                    className={`about__fact about__fact--${index + 1}`}
+                                <motion.div
+                                    className="about__fact-motion"
                                     key={fact.label}
+                                    variants={{
+                                        hidden: {
+                                            opacity: 0,
+                                            x: 24,
+                                        },
+                                        visible: {
+                                            opacity: 1,
+                                            x: 0,
+                                            transition: {
+                                                duration: 0.5,
+                                                ease: [0.22, 1, 0.36, 1],
+                                            },
+                                        },
+                                    }}
                                 >
-                                    <span className="about__fact-label">
-                                        {fact.label}
-                                    </span>
+                                    <div
+                                        className={`about__fact about__fact--${index + 1}`}
+                                    >
+                                        <span className="about__fact-label">
+                                            {fact.label}
+                                        </span>
 
-                                    <span className="about__fact-value">
-                                        {fact.value}
-                                    </span>
-                                </div>
+                                        <span className="about__fact-value">
+                                            {fact.value}
+                                        </span>
+                                    </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
 
-                        <div className="about__quote">
-                            <span className="about__quote-small">
-                                PEPE HAD HIS RUN.
-                            </span>
+                        <motion.div
+                            className="about__quote-motion"
+                            initial={{
+                                opacity: 0,
+                                y: 18,
+                            }}
+                            whileInView={{
+                                opacity: 1,
+                                y: 0,
+                            }}
+                            viewport={{
+                                once: true,
+                                amount: 0.4,
+                            }}
+                            transition={{
+                                duration: 0.55,
+                                ease: [0.22, 1, 0.36, 1],
+                            }}
+                        >
+                            <div className="about__quote">
+                                <span className="about__quote-small">
+                                    PEPE HAD HIS RUN.
+                                </span>
 
-                            <strong>
-                                NOW IT&apos;S
-                                <span> YARL&apos;S TURN.</span>
-                            </strong>
-                        </div>
+                                <strong>
+                                    NOW IT&apos;S
+                                    <span> YARL&apos;S TURN.</span>
+                                </strong>
+                            </div>
+                        </motion.div>
 
                         <motion.div
                             className="about__visual"
@@ -241,7 +278,7 @@ function About() {
                                     loop
                                     muted
                                     playsInline
-                                    preload="metadata"
+                                    preload="auto"
                                     aria-label="Yarl OG lore animation"
                                 >
                                     <source
@@ -251,7 +288,7 @@ function About() {
                                 </video>
                             </div>
                         </motion.div>
-                    </motion.aside>
+                    </aside>
                 </div>
             </div>
         </section>

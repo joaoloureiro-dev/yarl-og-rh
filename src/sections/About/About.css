@@ -162,6 +162,16 @@
     height: 100%;
 }
 
+/*
+ * Framer Motion runs on these outer wrappers.
+ * The inner visual elements keep their CSS rotations untouched.
+ */
+
+.about__fact-motion,
+.about__quote-motion {
+    width: 100%;
+}
+
 .about__facts {
     display: grid;
 
@@ -175,6 +185,8 @@
 
     gap: var(--space-4);
 
+    width: 100%;
+
     padding:
         var(--space-4) var(--space-5);
 
@@ -185,6 +197,8 @@
 
     box-shadow: 5px 5px 0 var(--color-border);
 }
+
+/* Keep original cartoon rotations */
 
 .about__fact--1 {
     transform: rotate(-1.2deg);
@@ -218,6 +232,8 @@
 /* Quote */
 
 .about__quote {
+    width: 100%;
+
     padding:
         var(--space-6) var(--space-5);
 
