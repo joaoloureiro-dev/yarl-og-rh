@@ -27,6 +27,22 @@
     justify-content: center;
 }
 
+/*
+ * Framer Motion controls the vertical floating animation here.
+ * Keeping this wrapper separate prevents Motion from overriding
+ * the rotation applied to the character frame.
+ */
+
+.hero__character-float {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    will-change: transform;
+}
+
 .hero__character-wrap {
     position: relative;
 
@@ -167,6 +183,8 @@
         8px 9px 0 rgba(64, 83, 28, 0.16);
 
     transform: rotate(-1deg);
+
+    will-change: transform;
 }
 
 .hero__description {

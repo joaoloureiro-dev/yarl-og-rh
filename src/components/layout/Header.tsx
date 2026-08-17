@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { tokenConfig } from '../../data/site'
+
 import './Header.css'
 
 const navigationItems = [
@@ -49,7 +51,9 @@ function Header() {
 
                 <a
                     className="site-header__buy site-header__buy--desktop"
-                    href="#buy"
+                    href={tokenConfig.links.buy}
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     BUY $YARL
                 </a>
@@ -57,7 +61,9 @@ function Header() {
                 <button
                     className={[
                         'site-header__menu-button',
-                        isMenuOpen ? 'site-header__menu-button--open' : '',
+                        isMenuOpen
+                            ? 'site-header__menu-button--open'
+                            : '',
                     ]
                         .filter(Boolean)
                         .join(' ')}
@@ -69,7 +75,9 @@ function Header() {
                     }
                     aria-expanded={isMenuOpen}
                     aria-controls="mobile-navigation"
-                    onClick={() => setIsMenuOpen((current) => !current)}
+                    onClick={() =>
+                        setIsMenuOpen((current) => !current)
+                    }
                 >
                     <span />
                     <span />
@@ -81,7 +89,9 @@ function Header() {
                 id="mobile-navigation"
                 className={[
                     'site-header__mobile-nav',
-                    isMenuOpen ? 'site-header__mobile-nav--open' : '',
+                    isMenuOpen
+                        ? 'site-header__mobile-nav--open'
+                        : '',
                 ]
                     .filter(Boolean)
                     .join(' ')}
@@ -101,7 +111,9 @@ function Header() {
 
                     <a
                         className="site-header__buy site-header__buy--mobile"
-                        href="#buy"
+                        href={tokenConfig.links.buy}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={closeMenu}
                     >
                         BUY $YARL

@@ -6,4 +6,10 @@ export const tokenConfig: TokenConfig = {
     contractAddress: '0x3d183cf66fd654c0B14a26C9519e5053DF6A7791',
     chain: 'Robinhood Chain',
     chainId: 'robinhood',
+
+    links: {
+        telegram: 'https://t.me/YARL_OG_ROBINHOOD',
+
+        buy: 'https://app.uniswap.org/swap?chain=robinhood&inputCurrency=NATIVE&outputCurrency=0x3d183cf66fd654c0B14a26C9519e5053DF6A7791',
+    },
 }
