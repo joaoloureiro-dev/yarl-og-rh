@@ -10,12 +10,19 @@ import Tokenomics from './sections/Tokenomics/Tokenomics'
 function App() {
   return (
     <>
+      <a
+        className="skip-link"
+        href="#main-content"
+      >
+        SKIP TO CONTENT
+      </a>
+
       <div id="top" />
 
       <BlockchainTicker />
       <Header />
 
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Tokenomics />

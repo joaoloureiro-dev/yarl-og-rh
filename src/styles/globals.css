@@ -90,3 +90,74 @@ h4 {
     color: var(--color-text);
     background: var(--color-yellow-300);
 }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+}
+
+:focus-visible {
+    outline: 3px solid var(--color-yellow-500);
+    outline-offset: 4px;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+    touch-action: manipulation;
+}
+
+img,
+video {
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.skip-link {
+    position: fixed;
+    top: var(--space-4);
+    left: var(--space-4);
+
+    z-index: 9999;
+
+    padding:
+        var(--space-3) var(--space-5);
+
+    font-family: var(--font-family-data);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+
+    color: var(--color-green-900);
+    background: var(--color-yellow-400);
+
+    border: var(--border-heavy) solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    box-shadow: 4px 5px 0 var(--color-border);
+
+    text-decoration: none;
+
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
