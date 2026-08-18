@@ -1,4 +1,5 @@
 import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
 import BlockchainTicker from './components/ticker/BlockchainTicker'
 import About from './sections/About/About'
 import Community from './sections/Community/Community'
@@ -21,6 +22,8 @@ function App() {
         <HowToBuy />
         <Community />
       </main>
+
+      <Footer />
     </>
   )
 }
