@@ -4,7 +4,7 @@
     width: 100%;
 
     padding:
-        var(--space-8) var(--page-padding) var(--space-12);
+        var(--space-8) var(--page-padding) var(--space-10);
 
     overflow: hidden;
 }
@@ -25,13 +25,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
 
-/*
- * Framer Motion controls the vertical floating animation here.
- * Keeping this wrapper separate prevents Motion from overriding
- * the rotation applied to the character frame.
- */
+    width: 100%;
+    min-width: 0;
+}
 
 .hero__character-float {
     display: flex;
@@ -39,6 +36,7 @@
     justify-content: center;
 
     width: 100%;
+    min-width: 0;
 
     will-change: transform;
 }
@@ -50,7 +48,9 @@
     align-items: center;
     justify-content: center;
 
-    width: min(94%, 27rem);
+    width: min(calc(100% - var(--space-2)), 27rem);
+    max-width: 100%;
+    min-width: 0;
 
     padding: var(--space-3);
 
@@ -60,14 +60,13 @@
     border-radius:
         2rem 1.5rem 2.2rem 1.7rem;
 
-    box-shadow: 7px 8px 0 var(--color-border);
+    box-shadow:
+        6px 7px 0 var(--color-border);
 
-    transform: rotate(-2deg);
+    transform: rotate(-0.8deg);
 
     overflow: hidden;
 }
-
-/* Irregular cartoon background inside the frame */
 
 .hero__character-wrap::before {
     content: '';
@@ -100,7 +99,8 @@
 
     object-fit: contain;
 
-    filter: drop-shadow(5px 7px 0 rgba(64, 83, 28, 0.16));
+    filter:
+        drop-shadow(5px 7px 0 rgba(64, 83, 28, 0.16));
 
     user-select: none;
 
@@ -113,7 +113,12 @@
     position: relative;
     z-index: 2;
 
+    width: min(100%, 34rem);
+
     margin-top: var(--space-6);
+    margin-inline: auto;
+
+    padding-inline: var(--space-2);
 
     text-align: center;
 }
@@ -134,22 +139,26 @@
     border: var(--border-medium) solid var(--color-border);
     border-radius: var(--radius-pill);
 
-    transform: rotate(-1.5deg);
+    transform: rotate(-1deg);
 }
 
 /* Hero title */
 
 .hero__title {
+    width: 100%;
+
     margin-top: var(--space-4);
 
     font-family: var(--font-family-display);
-    font-size: clamp(3.25rem, 15vw, 5.75rem);
+    font-size: clamp(3rem, 14vw, 5.75rem);
     font-weight: 400;
-    line-height: 0.82;
+    line-height: 0.84;
 
     color: var(--color-green-700);
 
     letter-spacing: -0.02em;
+
+    overflow-wrap: break-word;
 }
 
 .hero__title-top {
@@ -171,7 +180,8 @@
 
     color: var(--color-yellow-500);
 
-    -webkit-text-stroke: 2px var(--color-green-700);
+    -webkit-text-stroke:
+        2px var(--color-green-700);
 
     text-shadow:
         1px 1px 0 var(--color-green-700),
@@ -182,19 +192,20 @@
         6px 6px 0 var(--color-green-700),
         8px 9px 0 rgba(64, 83, 28, 0.16);
 
-    transform: rotate(-1deg);
+    transform: rotate(-0.7deg);
 
     will-change: transform;
 }
 
 .hero__description {
-    max-width: 30rem;
+    width: min(100%, 30rem);
 
     margin:
         var(--space-4) auto 0;
 
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     font-weight: 600;
+    line-height: 1.6;
 
     color: var(--color-text-muted);
 }
@@ -220,16 +231,20 @@
     align-items: center;
     justify-content: center;
 
+    width: 100%;
     min-height: 3.5rem;
 
     padding:
-        var(--space-3) var(--space-8);
+        var(--space-3) var(--space-6);
 
     font-family: var(--font-family-display);
     font-size: var(--font-size-xl);
 
     border: var(--border-heavy) solid var(--color-border);
     border-radius: var(--radius-lg);
+
+    text-align: center;
+    text-decoration: none;
 
     transition:
         transform var(--duration-fast) var(--ease-standard),
@@ -241,41 +256,47 @@
     color: var(--color-green-900);
     background: var(--color-yellow-400);
 
-    box-shadow: 5px 5px 0 var(--color-border);
+    box-shadow:
+        5px 5px 0 var(--color-border);
 
-    transform: rotate(0.5deg);
+    transform: rotate(0.4deg);
 }
 
 .hero__buy:hover {
     transform:
-        translate(2px, 2px) rotate(0.5deg);
+        translate(2px, 2px) rotate(0.4deg);
 
-    box-shadow: 3px 3px 0 var(--color-border);
+    box-shadow:
+        3px 3px 0 var(--color-border);
 }
 
 .hero__community {
     color: var(--color-green-700);
     background: var(--color-green-100);
 
-    box-shadow: 5px 5px 0 var(--color-border);
+    box-shadow:
+        5px 5px 0 var(--color-border);
 
-    transform: rotate(-0.5deg);
+    transform: rotate(-0.4deg);
 }
 
 .hero__community:hover {
     background: var(--color-green-300);
 
     transform:
-        translate(2px, 2px) rotate(-0.5deg);
+        translate(2px, 2px) rotate(-0.4deg);
 
-    box-shadow: 3px 3px 0 var(--color-border);
+    box-shadow:
+        3px 3px 0 var(--color-border);
 }
 
 /* Contract */
 
 .hero__contract {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns:
+        auto minmax(0, 1fr) auto;
+
     align-items: center;
 
     gap: var(--space-2);
@@ -292,7 +313,10 @@
     border: var(--border-medium) solid var(--color-border);
     border-radius: var(--radius-lg);
 
-    box-shadow: 3px 3px 0 var(--color-border);
+    box-shadow:
+        3px 3px 0 var(--color-border);
+
+    min-width: 0;
 }
 
 .hero__contract-label {
@@ -342,7 +366,8 @@
     border: var(--border-medium) solid var(--color-border);
     border-radius: var(--radius-md);
 
-    box-shadow: 2px 2px 0 var(--color-border);
+    box-shadow:
+        2px 2px 0 var(--color-border);
 
     transition:
         transform var(--duration-fast) var(--ease-standard),
@@ -352,15 +377,78 @@
 .hero__copy:hover {
     transform: translate(1px, 1px);
 
-    box-shadow: 1px 1px 0 var(--color-border);
+    box-shadow:
+        1px 1px 0 var(--color-border);
+}
+
+/* Very small mobile */
+
+@media (max-width: 359px) {
+    .hero {
+        padding:
+            var(--space-7) var(--space-3) var(--space-9);
+    }
+
+    .hero__character-wrap {
+        width: calc(100% - var(--space-3));
+
+        padding: var(--space-2);
+
+        transform: rotate(-0.5deg);
+    }
+
+    .hero__content {
+        margin-top: var(--space-5);
+
+        padding-inline: var(--space-1);
+    }
+
+    .hero__title {
+        font-size: clamp(2.75rem, 13vw, 4rem);
+    }
+
+    .hero__description {
+        font-size: var(--font-size-sm);
+    }
+
+    .hero__actions {
+        width: calc(100% - var(--space-2));
+    }
+
+    .hero__buy,
+    .hero__community {
+        padding:
+            var(--space-3) var(--space-5);
+    }
+
+    .hero__contract {
+        width: calc(100% - var(--space-2));
+
+        gap: var(--space-1);
+
+        padding: var(--space-2);
+    }
+
+    .hero__contract-label {
+        min-width: 2rem;
+        height: 2rem;
+    }
+
+    .hero__copy {
+        min-height: 2rem;
+
+        padding-inline: var(--space-2);
+
+        font-size: var(--font-size-xs);
+    }
 }
 
 /* Tablet */
 
 @media (min-width: 768px) {
     .hero {
-        padding-top: var(--space-12);
-        padding-bottom: var(--space-16);
+        padding:
+            var(--space-12) var(--page-padding) var(--space-14);
     }
 
     .hero__character-wrap {
@@ -368,11 +456,16 @@
 
         padding: var(--space-4);
 
-        box-shadow: 9px 10px 0 var(--color-border);
+        box-shadow:
+            9px 10px 0 var(--color-border);
+
+        transform: rotate(-1.4deg);
     }
 
     .hero__content {
         margin-top: var(--space-8);
+
+        padding-inline: var(--space-5);
     }
 
     .hero__description {
@@ -392,8 +485,8 @@
 
 @media (min-width: 1024px) {
     .hero {
-        padding-top: var(--space-16);
-        padding-bottom: var(--space-16);
+        padding:
+            var(--space-16) var(--page-padding) var(--space-16);
     }
 
     .hero__inner {
@@ -413,6 +506,9 @@
 
         margin-top: 0;
         margin-left: auto;
+        margin-right: 0;
+
+        padding-inline: 0;
 
         text-align: left;
     }
@@ -433,7 +529,8 @@
 
         transform: rotate(2deg);
 
-        box-shadow: 10px 11px 0 var(--color-border);
+        box-shadow:
+            10px 11px 0 var(--color-border);
     }
 
     .hero__character {
@@ -451,6 +548,8 @@
     .hero__description {
         margin:
             var(--space-5) 0 0;
+
+        font-size: var(--font-size-xl);
     }
 
     .hero__actions {
@@ -467,6 +566,29 @@
     .hero__buy,
     .hero__community {
         flex: 0 0 auto;
+
+        width: auto;
+
+        padding:
+            var(--space-3) var(--space-8);
+    }
+
+    .hero__buy {
+        transform: rotate(0.5deg);
+    }
+
+    .hero__buy:hover {
+        transform:
+            translate(2px, 2px) rotate(0.5deg);
+    }
+
+    .hero__community {
+        transform: rotate(-0.5deg);
+    }
+
+    .hero__community:hover {
+        transform:
+            translate(2px, 2px) rotate(-0.5deg);
     }
 
     .hero__contract {
