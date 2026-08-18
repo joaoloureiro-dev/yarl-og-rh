@@ -1,5 +1,6 @@
 export interface TokenLinks {
     telegram: string
+    x: string
     buy: string
 }
 
