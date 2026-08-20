@@ -26,7 +26,9 @@
 
 .blockchain-ticker__track {
     display: flex;
+
     width: max-content;
+    min-width: max-content;
 
     animation: ticker-scroll 28s linear infinite;
 
@@ -39,7 +41,9 @@
 
     gap: var(--ticker-gap);
 
-    flex-shrink: 0;
+    flex: 0 0 auto;
+
+    width: max-content;
 
     padding-block: 0.7rem;
     padding-right: var(--ticker-gap);
@@ -48,9 +52,10 @@
 .blockchain-ticker__item {
     display: flex;
     align-items: center;
+
     gap: var(--space-2);
 
-    flex-shrink: 0;
+    flex: 0 0 auto;
 
     white-space: nowrap;
 }
@@ -70,7 +75,7 @@
     color: var(--color-green-900);
 }
 
-.blockchain-ticker__dot {
+.blockchain-ticker__separator {
     margin-left: var(--space-3);
 
     font-family: var(--font-family-display);
@@ -92,9 +97,11 @@
     }
 
     to {
-        transform: translate3d(-50%, 0, 0);
+        transform: translate3d(-25%, 0, 0);
     }
 }
+
+/* Tablet */
 
 @media (min-width: 768px) {
     .blockchain-ticker {
@@ -108,5 +115,17 @@
     .blockchain-ticker__label,
     .blockchain-ticker__value {
         font-size: var(--font-size-base);
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 1024px) {
+    .blockchain-ticker {
+        --ticker-gap: 2.75rem;
+    }
+
+    .blockchain-ticker__track {
+        animation-duration: 32s;
     }
 }
