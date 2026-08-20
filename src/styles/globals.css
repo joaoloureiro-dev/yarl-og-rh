@@ -7,13 +7,17 @@
 html {
     min-width: 320px;
     min-height: 100%;
-    background: var(--color-background);
+
     color: var(--color-text);
+    background: var(--color-background);
+
     scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
 }
 
 body {
     margin: 0;
+
     min-width: 320px;
     min-height: 100vh;
 
@@ -37,15 +41,6 @@ input,
 textarea,
 select {
     font: inherit;
-}
-
-img,
-picture,
-svg,
-video,
-canvas {
-    display: block;
-    max-width: 100%;
 }
 
 button,
@@ -79,7 +74,18 @@ h4 {
     font-family: var(--font-family-display);
     font-weight: var(--font-weight-regular);
     line-height: var(--line-height-tight);
+
     color: var(--color-green-700);
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+    display: block;
+
+    max-width: 100%;
 }
 
 #root {
@@ -91,11 +97,6 @@ h4 {
     background: var(--color-yellow-300);
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 8rem;
-}
-
 :focus-visible {
     outline: 3px solid var(--color-yellow-500);
     outline-offset: 4px;
@@ -104,17 +105,11 @@ html {
 a,
 button {
     -webkit-tap-highlight-color: transparent;
-}
 
-button,
-a {
     touch-action: manipulation;
 }
 
-img,
-video {
-    max-width: 100%;
-}
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -126,10 +121,25 @@ video {
     *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
+
         transition-duration: 0.01ms !important;
+
         scroll-behavior: auto !important;
     }
+
+    /*
+     * The market ticker must remain continuously active.
+     * Override the global reduced-motion animation reset
+     * only for this functional live-data component.
+     */
+
+    .blockchain-ticker__track {
+        animation-duration: 28s !important;
+        animation-iteration-count: infinite !important;
+    }
 }
+
+/* Skip link */
 
 .skip-link {
     position: fixed;
@@ -151,7 +161,8 @@ video {
     border: var(--border-heavy) solid var(--color-border);
     border-radius: var(--radius-md);
 
-    box-shadow: 4px 5px 0 var(--color-border);
+    box-shadow:
+        4px 5px 0 var(--color-border);
 
     text-decoration: none;
 
