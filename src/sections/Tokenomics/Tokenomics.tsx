@@ -9,6 +9,7 @@ interface TokenomicsItem {
     label: string
     value: string
     detail: string
+    secondaryDetail?: string
     className: string
 }
 
@@ -37,6 +38,7 @@ function Tokenomics() {
             label: 'CHAIN',
             value: 'RH',
             detail: 'ROBINHOOD CHAIN',
+            secondaryDetail: 'LAUNCHED ON NOXA',
             className: 'tokenomics__card--chain',
         },
         {
@@ -143,6 +145,12 @@ function Tokenomics() {
 
                                 <span className="tokenomics__card-detail">
                                     {item.detail}
+
+                                    {item.secondaryDetail && (
+                                        <span className="tokenomics__card-detail-secondary">
+                                            {item.secondaryDetail}
+                                        </span>
+                                    )}
                                 </span>
                             </article>
                         </motion.div>

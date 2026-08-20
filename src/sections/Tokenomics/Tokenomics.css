@@ -195,6 +195,12 @@
     overflow-wrap: break-word;
 }
 
+.tokenomics__card-detail-secondary {
+    display: block;
+
+    margin-top: var(--space-4);
+}
+
 /* Individual cards */
 
 .tokenomics__card--supply {
